@@ -1,0 +1,140 @@
+//Sir please run this assignment on vs code
+//Sir i had submitted this assignment on time on
+//teams. 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+          margin-top: 25px;
+          background-color: aqua;  
+        }
+        .hd-line{
+            font-size: 40px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: rgb(45, 49, 48);
+            color:white;
+        }
+        .ip{
+            position: relative;
+            left:44%;
+        }
+        #bill-amount{
+            margin-top: 15px;
+            border-radius: 16px;
+            border-width: 2.5px;
+            font-family: 'Times New Roman', Times, serif;
+            width: 200px;
+        }
+        #person{
+            margin-top: 15px;
+            border-radius: 16px;
+            border-width: 2.5px;
+            font-family: 'Times New Roman', Times, serif;
+            width: 200px;
+        }
+        #percentage{
+            margin-top: 15px;
+            border-radius: 16px;
+            border-width: 2.5px;
+            font-family: 'Times New Roman', Times, serif;
+            width: 200px;
+        }
+        #l1{
+            margin-bottom: 100px;
+            margin-left: 2%;
+            font-weight: bolder;
+        }
+        #l2{
+            margin-top: 20px;
+            margin-left: 2%;
+            font-weight: bolder;
+
+        }
+        #l3{
+            margin-top: 20px;
+            margin-left: 1%;
+            font-weight: bolder;
+
+        }
+        #btn{
+            margin-top: 20px;
+            margin-left: 4%;
+            width:90px;
+            height: 35px;
+            border-width: 2px;
+            background-color: black;
+            color:white;
+            font-size: 12px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #btn:hover{
+            background-color: rgb(36, 36, 48);
+            font-size: 14px;
+        }
+        .container-fluid{
+            text-align: center;
+            font-size: 14px;
+            background-color: rgb(127, 161, 224);
+            font-weight: bolder;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+        <marquee class="hd-line">Tip Calculator</marquee>
+        </div>
+        <div class="ip">
+            <label id="l1">Enter The Bill Amount</label>
+            <br>
+        <input type="text" placeholder="bill amount" id="bill-amount">
+        <br>
+        <label id="l2">Enter The No Of Person <br><mark>(to divide total amount)</mark></label>
+        <br>
+        <input type="text" placeholder="Number of person" id="person">
+        <br>
+        <label id="l3">Enter The Tip Amount (%)</label>
+        <br>
+        <input type="text" placeholder="tip percentage" id="percentage">
+        <br>
+
+        <input id="btn" type="submit" value="CALCULATE" onclick="calculate()">
+        </div>
+
+        <div class="container-fluid">
+         <div id="display" style="display: none;">
+            <h2 > TIP AMOUNT <span id="tip"></span> </h2>
+            <hr>
+            <h2 > TOTAL AMOUNT <span id="total"></span> </h2>
+            <hr>
+            <h2 > PER HEAD AMOUNT <span id="perperson"></span> </h2>
+            <hr>
+            <h2 > TIP PER HEAD <span id="tip-person"></span> </h2>
+        </div>
+    </div>
+    <script>
+        function calculate(){
+            
+          var billAmount = parseInt( document.getElementById('bill-amount').value) ;
+          var person = parseInt( document.getElementById('person').value) ;
+          var percentage = parseInt( document.getElementById('percentage').value) ;  
+          var tip = billAmount*(percentage/100 ) ;   
+          var total = billAmount + tip ;
+          var perperson = total/person ;
+          var perpersontip = tip/person ;
+
+          document.getElementById("tip").innerHTML = tip ;
+          document.getElementById("total").innerHTML = total;
+          document.getElementById("perperson").innerHTML = perperson;
+          document.getElementById("display").style.display = "block" ;
+          document.getElementById('tip-person').innerHTML = perpersontip;
+        }
+    </script>
+</body>
+</html>
